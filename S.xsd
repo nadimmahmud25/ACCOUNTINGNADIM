@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="S" targetNamespace="http://tempuri.org/S.xsd" xmlns:mstns="http://tempuri.org/S.xsd" xmlns="http://tempuri.org/S.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="NADIMACCOUNTINGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NADIMACCOUNTINGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ACCOUNTINGNADIM.Properties.Settings.GlobalReference.Default.NADIMACCOUNTINGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AccountsTableAdapter" GeneratorDataComponentClassName="AccountsTableAdapter" Name="Accounts" UserDataComponentName="AccountsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NADIMACCOUNTINGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select L.Groups,L.Ledgers,L.Address,a.Item,a.Unit,SUM(a.Credit)-SUM(a.Debit) as Balance,SUM(a.WQty)-SUM(a.DQty) as M from Accounts a inner join Ledgers L on a.Groups=L.Groups group by L.Groups,L.Ledgers,L.Address,a.Item,a.Unit</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Groups" DataSetColumn="Groups" />
+              <Mapping SourceColumn="Ledgers" DataSetColumn="Ledgers" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Item" DataSetColumn="Item" />
+              <Mapping SourceColumn="Unit" DataSetColumn="Unit" />
+              <Mapping SourceColumn="Balance" DataSetColumn="Balance" />
+              <Mapping SourceColumn="M" DataSetColumn="M" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="S" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="S" msprop:Generator_UserDSName="S">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Accounts" msprop:Generator_TableClassName="AccountsDataTable" msprop:Generator_TableVarName="tableAccounts" msprop:Generator_TablePropName="Accounts" msprop:Generator_RowDeletingName="AccountsRowDeleting" msprop:Generator_RowChangingName="AccountsRowChanging" msprop:Generator_RowEvHandlerName="AccountsRowChangeEventHandler" msprop:Generator_RowDeletedName="AccountsRowDeleted" msprop:Generator_UserTableName="Accounts" msprop:Generator_RowChangedName="AccountsRowChanged" msprop:Generator_RowEvArgName="AccountsRowChangeEvent" msprop:Generator_RowClassName="AccountsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Groups" msprop:Generator_ColumnVarNameInTable="columnGroups" msprop:Generator_ColumnPropNameInRow="Groups" msprop:Generator_ColumnPropNameInTable="GroupsColumn" msprop:Generator_UserColumnName="Groups" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ledgers" msprop:Generator_ColumnVarNameInTable="columnLedgers" msprop:Generator_ColumnPropNameInRow="Ledgers" msprop:Generator_ColumnPropNameInTable="LedgersColumn" msprop:Generator_UserColumnName="Ledgers" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Item" msprop:Generator_ColumnVarNameInTable="columnItem" msprop:Generator_ColumnPropNameInRow="Item" msprop:Generator_ColumnPropNameInTable="ItemColumn" msprop:Generator_UserColumnName="Item" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" msprop:Generator_UserColumnName="Unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Balance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" type="xs:double" minOccurs="0" />
+              <xs:element name="M" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnM" msprop:Generator_ColumnPropNameInRow="M" msprop:Generator_ColumnPropNameInTable="MColumn" msprop:Generator_UserColumnName="M" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
